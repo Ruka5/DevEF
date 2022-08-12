@@ -1,0 +1,20 @@
+--Group by
+Select Shelf, sum(Quantity) As Quantity, sum(Bin) as Bin
+from Production.ProductInventory
+Group By Shelf Order By Shelf
+
+--Having Clause
+Select Shelf, sum(Quantity) As Quantity, sum(Bin) as Bin
+from Production.ProductInventory
+Group By Shelf Having Shelf = 'A' Order By Shelf
+
+--Is completely same with Where
+Select Shelf, sum(Quantity) As Quantity, sum(Bin) as Bin
+from Production.ProductInventory
+where Shelf = 'A'
+Group By Shelf 
+
+--Having must be use in aggregate function
+Select Shelf, sum(Quantity) As Quantity, sum(Bin) as Bin
+from Production.ProductInventory
+Group By Shelf  Having sum(Quantity) > 10000 Order By Shelf

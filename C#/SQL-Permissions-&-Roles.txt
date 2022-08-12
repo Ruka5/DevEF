@@ -1,0 +1,100 @@
+--Let's learn how to what kind of permission that a user have.
+--Database_permissions and database_principals tables will be joined to get the list of all
+--Permissions
+Select P.* from sys.database_permissions As P
+Join sys.database_principals U
+On P.grantee_principal_id = U.principal_id
+Where U.name = 'admin'
+
+Grant Create table to admin	--Allows to create new table
+Grant Select, Insert, Update, Delete on Table_1 to admin
+
+
+/*	Result after all statements
+
+0	DATABASE	0	0	6	1	CO  	CONNECT	G	GRANT
+0	DATABASE	0	0	6	1	CRTB	CREATE TABLE	G	GRANT
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	DL  	DELETE	G	GRANT
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	IN  	INSERT	G	GRANT
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	SL  	SELECT	G	GRANT
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	UP  	UPDATE	G	GRANT
+*/
+
+--DENY
+Deny Create Table To admin	--That's mean no any permission to create any table by admin user
+
+--and check the list of Permissions
+Select P.* from sys.database_permissions As P
+Join sys.database_principals U
+On P.grantee_principal_id = U.principal_id
+Where U.name = 'admin'
+
+/*
+0	DATABASE	0	0	6	1	CO  	CONNECT	G	GRANT
+0	DATABASE	0	0	6	1	CRTB	CREATE TABLE	D	DENY	
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	DL  	DELETE	G	GRANT
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	IN  	INSERT	G	GRANT
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	SL  	SELECT	G	GRANT
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	UP  	UPDATE	G	GRANT
+*/
+
+--DENY
+Deny Select On Table_1 To admin
+
+/*
+0	DATABASE	0	0	6	1	CO  	CONNECT	G	GRANT
+0	DATABASE	0	0	6	1	CRTB	CREATE TABLE	D	DENY
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	DL  	DELETE	G	GRANT
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	IN  	INSERT	G	GRANT
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	SL  	SELECT	D	DENY
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	UP  	UPDATE	G	GRANT
+*/
+
+--Now we have no more permissions to retreive data from Table_1
+/*
+Msg 229, Level 14, State 5, Line 4
+The SELECT permission was denied on the object 'Table_1', database 'AdventureWorks2017', schema 'dbo'.
+*/
+
+Select name from Table_1
+
+Revoke Create Table To admin
+/*
+0	DATABASE	0	0	6	1	CO  	CONNECT	G	GRANT
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	DL  	DELETE	G	GRANT
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	IN  	INSERT	G	GRANT
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	SL  	SELECT	D	DENY
+1	OBJECT_OR_COLUMN	1575676661	0	6	1	UP  	UPDATE	G	GRANT
+*/
+
+Revoke all on Table_1 To admin
+/*
+0	DATABASE	0	0	6	1	CO  	CONNECT	G	GRANT
+*/
+
+Grant Create Table To admin
+
+Deny Select on Test_Schema.Table_1 To Test_Role
+/*
+0	DATABASE	0	0	6	1	CO  	CONNECT	G	GRANT
+0	DATABASE	0	0	6	1	CRTB	CREATE TABLE	G	GRANT
+*/
+
+--and check the list of Permissions
+Select P.* from sys.database_permissions As P
+Join sys.database_principals U
+On P.grantee_principal_id = U.principal_id
+Where U.name = 'Test_Role'
+
+/*
+1	OBJECT_OR_COLUMN	1895677801	0	7	6	AL  	ALTER	G	GRANT
+1	OBJECT_OR_COLUMN	1895677801	0	7	6	CL  	CONTROL	G	GRANT
+1	OBJECT_OR_COLUMN	1895677801	0	7	6	DL  	DELETE	G	GRANT
+1	OBJECT_OR_COLUMN	1895677801	0	7	6	IN  	INSERT	G	GRANT
+1	OBJECT_OR_COLUMN	1895677801	0	7	6	RF  	REFERENCES	G	GRANT
+1	OBJECT_OR_COLUMN	1895677801	0	7	6	SL  	SELECT	D	DENY
+1	OBJECT_OR_COLUMN	1895677801	0	7	6	TO  	TAKE OWNERSHIP	G	GRANT
+1	OBJECT_OR_COLUMN	1895677801	0	7	6	UP  	UPDATE	G	GRANT
+1	OBJECT_OR_COLUMN	1895677801	0	7	6	VW  	VIEW DEFINITION	G	GRANT
+1	OBJECT_OR_COLUMN	1895677801	0	7	6	VWCT	VIEW CHANGE TRACKING	G	GRANT
+*/

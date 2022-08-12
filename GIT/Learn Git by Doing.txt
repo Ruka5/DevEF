@@ -1,0 +1,213 @@
+# GIT/quotebook
+
+git init
+
+git status
+git add
+git commit
+git log
+
+git revert
+git reset
+
+git branch
+git checkout
+
+
+
+# BRANCHING
+
+git branch personal_quots
+git branch
+git checkout "personal_quots"			actually switch to branch personal_quots is now as master
+git status
+git branch
+git checkout master						will switch the master now
+git status
+git branch
+git checkout personal_quots
+
+https://git-school.github.io/visualizing-git/#free
+
+git commit -m "Second commit"			HEAD is just pointing to that lastest commit on your current branch
+git branch personal_quots				we create another branch I can see in yellow, which are pointers to particular commits
+
+rememember: commits are just snapshots to particular projects!
+
+git checkout personal_quots
+git commit -m "first commit on personal_quots"				create different branches
+git checkout master 										HEAD moves to master which is previous snapshot of the projects
+
+
+
+
+
+
+
+
+# MERGE
+
+git status
+git merge
+git checkout master
+git branch
+git merge personal_quots
+
+
+
+
+
+
+# MERGE CONFLICTS
+
+git status
+git add .
+git commit -m "added quote about blue"
+git log
+git checkout master
+git add .
+git commit -m "Added Spock quote"
+https://git-school.github.io/visualizing-git/#free
+git status
+git checkout personal_quots
+git commit -m "added quote about blue"
+git checkout master
+git status
+git merge personal_quotes
+git checkout -b personal_color
+
+change in personal_quotes.txt text to yellow
+
+git add .
+git checkout master
+
+change in personal_quotes.txt text to green
+
+git add .
+git commit -m "changed collor to green"
+
+git status
+git merge personal_color
+
+if: CONFLICT (content): Merge conflict in personal_quotes.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+git add .
+git commit -m "fixed merge conflicts"
+git log
+
+
+
+
+
+
+
+
+# Git Diff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Terminal Commands
+
+What is the Terminal and Why do we need it?
+
+pwd -- Print Working Directory
+ls -- Short Listing
+ls -l -- Long Listing
+cd -- Change Directory
+cd ..  -- Change Previous Directory
+cd ~ -- Back To Home (root directory of my computer)
+
+to edit git:
+run commit > press I > write 'Second Commit' > press ESC > :wq and enter
+
+git log
+
+GT003705@CCR_PC_1 MINGW64 /c/MyJava/GIT/quotebook (master)
+$ git log
+commit 86d246fa8d61def1fe965ae2cf54a46a47488ece (HEAD -> master)
+Author: ruka5 <ryska.lukas@gmail.com>
+Date:   Wed Jun 1 13:07:46 2022 +0200
+
+    Second Commit
+
+commit cd7a7485ba9646e202cbaf76b504392f1515d853
+Author: ruka5 <ryska.lukas@gmail.com>
+Date:   Wed Jun 1 12:55:56 2022 +0200
+
+    Initial Commit
+
+
+How check the status , we use 7chars of commit id
+git revert -n cd7a7485b
+
+GT003705@CCR_PC_1 MINGW64 /c/MyJava/GIT/quotebook (master)
+$ git log
+commit 4c1b7ddd7eafd436586a2b8cb85e044af073f6c3 (HEAD -> master)
+Author: ruka5 <ryska.lukas@gmail.com>
+Date:   Thu Jun 2 09:49:44 2022 +0200
+
+    Reverting the second commit
+
+commit ad852b745a33050fe7246ce600edfaa000feebfc
+Author: ruka5 <ryska.lukas@gmail.com>
+Date:   Thu Jun 2 09:42:55 2022 +0200
+
+    Second Commit
+
+commit 1ae03e862094f890230288efd58158fee2043e7d
+Author: ruka5 <ryska.lukas@gmail.com>
+Date:   Thu Jun 2 09:35:33 2022 +0200
+
+    Initial Commit
+
+
+git reset ad852b7 --hard
+
+git stash
+
+git revert HEAD
+
+git log
+
+git reset HEAD~1		reset one commit before the head
+
+git reset HEAD~1 --hard
+
+git add . 				modifies all files in the folder
+
+git commit -m "Third Commit"		To actually commit those changes
+
+git status
+
+git revert -n HEAD					n specifies we don't rever commit yet
+
+git commit -m "Reverting the Third Commit"
+
+git reset d759e47 --hard
+
+

@@ -1,0 +1,67 @@
+Edit Your Quotebook
+
+Objective:
+This assignment is designed to solidify the following skills that you
+have learned in the previous videos:
+1. Creating and checking out branches
+2. Switching between branches to view different
+
+To Do:
+1. Create a new branch in your “MyQuoteBook” project (the one
+we started in the previous assignment) to add quotes on
+motivation
+answer:
+git branch motivation
+git branch
+git checkout motivation
+
+2. On this new branch create a separate file for your
+motivational quotes
+answer:
+touch motivation.txt
+git add motivation.txt
+
+3. Add some content to the motivational quotes file and then
+make a commit
+answer:
+git status
+git commit -m "Added motivation.txt"
+
+4. Checkout the master branch
+answer:
+git checkout master
+ls
+
+************************************************************************************************
+
+Edit Your Quotebook 2
+
+Objective:
+This assignment is designed to solidify the following skills that you
+have learned in the previous videos:
+1. Merging branches
+To Do:
+
+1. Merge the branch you made in the previous assignment (for
+motivational quotes) into your master branch
+do:
+git status
+git branch
+
+2. Solve any merge conflicts that arise
+do:
+git merge motivation
+
+3. Check your git history
+do:
+git status
+git log
+
+Optional:
+4. Delete the motivational quotes branch (hint: you will add a
+modifier to the git branch command and then specify the
+branch to delete)
+do:
+git branch -d motivation
+Deleted branch motivation (was ee14e98).
+git branch

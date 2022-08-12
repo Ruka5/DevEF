@@ -1,0 +1,53 @@
+Use AdventureWorks2017
+Go
+
+
+Select CurrencyCode	--109 rows
+from Sales.CountryRegionCurrency
+
+Select CurrencyCode	--105 rows
+from Sales.Currency
+
+--UNION -> removes the multiple rows
+Select CurrencyCode	--109 rows
+from Sales.CountryRegionCurrency
+Union
+Select CurrencyCode	--105 rows
+from Sales.Currency
+
+--UNION ALL -> allows the multiple rows
+Select CurrencyCode	--109 rows
+from Sales.CountryRegionCurrency
+Union ALL
+Select CurrencyCode	--105 rows
+from Sales.Currency
+
+Select 109+105
+
+--Intersect
+--All job titles for position held by both males and females
+Select JobTitle
+from HumanResources.Employee	--Left Table
+Where Gender = 'M'	--Job titles for males (206 Rows)
+Intersect	--26 Job titles
+Select JobTitle
+from HumanResources.Employee	--Right Table
+Where Gender = 'F'	--Job titles for females (84 Rows)
+
+--With Join(Inner)
+Select Distinct EM.JobTitle
+from HumanResources.Employee as EM
+Join HumanResources.Employee as EF
+On EM.JobTitle = EF.JobTitle
+	AND EM.Gender = 'M'
+	AND EF.Gender = 'F'
+
+--Except
+--Except returns only rows in the left table
+Select JobTitle
+from HumanResources.Employee	--Left Table
+Where Gender = 'M'	--Job titles for males (206 Rows)
+Except	--31 Job titles, only by males!
+Select JobTitle
+from HumanResources.Employee	--Right Table
+Where Gender = 'F'	--Job titles for females (84 Rows)

@@ -1,0 +1,36 @@
+Use Company
+Go
+
+Select CONVERT(int, 5.23)
+Select CONVERT(float, 5.23)
+Select CONVERT(varchar, 5.23)
+Select CONVERT(datetime, '2022-06-28') as TextToDateTime
+
+
+
+Select Cast(5.23 as int)
+Select Cast(5.23 as float)
+Select Cast(5.23 as varchar)
+Select Cast('2022-06-28' as datetime) as TextToDateTime
+
+
+
+Use AdventureWorks2017
+Go
+
+Select FirstName, LastName, ModifiedDate,
+		Convert(varchar(11), ModifiedDate ) DateToText
+from Person.Person
+
+
+Select FirstName, LastName, ModifiedDate
+from Person.Person
+
+Select FirstName, LastName, ModifiedDate,
+		Cast(ModifiedDate as varchar) DateToText
+from Person.Person
+
+-- return 7 characters from the beginning
+Select FirstName, LastName, ModifiedDate,
+		Cast(ModifiedDate as varchar(7)) DateToText
+from Person.Person

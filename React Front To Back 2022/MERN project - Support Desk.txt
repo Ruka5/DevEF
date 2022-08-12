@@ -1,0 +1,131 @@
+Check out
+How does the MERN stack work?
+MERN Stack Development
+MongoDB Atlas - The multi-coud application data platform
+Redux - A Predictiable State Container for JS Apps
+in chrome web store instal Redux DevTools
+Postman which is http client
+USE CONSOLE Git Bash
+
+
+Now, set-up MongoDB Cloud platform -> mongodb.com -> Products -> Tools -> Compass -> Compass -> Download and install this
+create mongo cloud db 
+
+create SUPPORT-DESK name of project
+as folder backend -> server.js and inside for now
+// Entry point to our back-end
+console.log('Server...');
+
+the in the main root, call npm init
+in package.json change this
+ "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+with
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+
+now thest with npm start which I should see Server...
+
+now to conzole git init
+
+create .gitignore in the root with this
+node_modules
+.env
+
+npm i express dotenv mongoose colors bcryptjs
+
+npm i -D nodemon
+we also create script for it in package.json
+ "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
+  },
+
+npm run server
+
+making commits:
+git add .
+git commit -m 'Initial commit'
+
+now connect to the cloud.mongodb.com -> Connect -> Connect your application -> coppy string
+put it to the .env file and dont forget change <password>
+MONGO_URI = 'mongodb+srv://ruka5:<password>@lukascluster.9s0av.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+
+in Network Access, just make sure you have correct address
+
+npm i jsonwebtoken
+
+
+GET: 	http://localhost:5000/api/users/me
+POST: 	http://localhost:5000/api/users
+POST: 	http://localhost:5000/api/users/login?email=brad@gmail.com&password=123456
+
+stop the server 5000
+
+create app to do that
+npx create-react-app@latest frontend --template redux
+cd frontend -> ls -a -> rm -rf .git_ (this will delete my repository front end)
+
+to the root forlde package.json add "client": "npm start --prefix frontend"
+ "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend"
+  },
+
+cd..
+npm run client
+
+npm i concurrently
+
+and the last "dev": "concurrently \"npm run server\" \"npm run client\""
+"scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+
+now we can start concurrently backend and frotend
+npm run dev
+
+cd frotend
+npm i react-router-dom react-toastify axios react-icons react-modal
+probably I would need to deprecate to:
+To be clear.
+
+There is better to install it one by one. Version by version.
+
+Firs of all, in ../frontend folder
+
+npm uninstall react
+npm install react@17.0.2 
+npm install react-dom@17.0.2
+and so on, as Brad's video snipped
+
+or 
+
+So change
+
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+to
+
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+Then I would suggest nuking the node_modules and lock file
+
+rm -rf node_modules
+rm package-lock.json
+And then reinstall all packages
+
+npm i
+
+START IT AGAIN: npm run dev
+
+
+
+
+

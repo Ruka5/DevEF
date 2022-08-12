@@ -1,0 +1,29 @@
+Use Company
+Go
+
+Select * from tableEmployees
+
+Select * from tableDepartments
+
+Select * from tableEmployees, tableDepartments
+
+Select EmployeeID, EmployeeName, DepartmentName
+from tableEmployees, tableDepartments
+
+Select EmployeeID, EmployeeName, DepartmentName
+from tableEmployees
+JOIN tableDepartments
+On tableEmployees.DepID = tableDepartments.DepID
+
+
+
+Use AdventureWorks2017
+Go
+
+Select * from Person.person
+
+Select * from Person.EmailAddress
+
+Select FirstName, LastName, EmailAddress from Person.Person
+JOIN Person.EmailAddress
+On Person.BusinessEntityID=EmailAddress.BusinessEntityID

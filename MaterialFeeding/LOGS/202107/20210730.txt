@@ -1,0 +1,4 @@
+2021-07-30 08:29:07.035> bwLists_RunWorkerCompleted() >> A transport-level error has occurred when sending the request to the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.)
+2021-07-30 08:29:28.926> DB is OFFLINE
+2021-07-30 08:29:29.940> DB is ONLINE
+2021-07-30 08:31:03.633> bwLists_RunWorkerCompleted() >> A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.)

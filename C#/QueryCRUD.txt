@@ -1,0 +1,19 @@
+Use Company
+Go
+
+Insert Into tableEmployees 
+(EmployeeID, EmployeeName, Phone, Age, DepID)
+values(1008,'Eric', 73766526 , 19,4)
+
+Insert Into tableEmployees 
+values(1007,'Steve',  44889834,25,1)
+
+Update tableEmployees
+set EmployeeName = 'Frank'
+
+Update tableEmployees
+set EmployeeName = 'Frank', Phone=1515151515
+where EmployeeID='1008'
+
+Delete tableEmployees
+where EmployeeID='1008'

@@ -1,0 +1,57 @@
+-- How many Cable Lock has been sold?
+Select COUNT(*) from Sales.SalesOrderDetail 
+where ProductID = (
+Select ProductID from Production.Product 
+where Name = 'Cable Lock')
+
+-- Single row subqueries
+Select COUNT(*) from Sales.SalesOrderDetail 
+where ProductID = (
+Select MIN(ProductID) from Production.Product 
+where Name = 'Cable Lock')
+
+-- Which products have been ordered yet?
+Select * from Production.Product 
+Where ProductID IN
+	(Select ProductID from Sales.SalesOrderDetail)
+
+-- Which products have not been ordered yet?
+Select * from Production.Product 
+Where ProductID NOT IN
+	(Select ProductID from Sales.SalesOrderDetail)
+
+-- Which products have not been ordered yet?
+Select * from Production.Product as P
+Where NOT EXISTS
+	(Select ProductID from Sales.SalesOrderDetail as S
+	where p.productID = S.ProductID)
+
+--Insert data with subqueries
+Select * from Person.StateProvince
+
+--Insert data with subqueries
+Insert Into Person.StateProvinceTest
+	Select StateProvinceCode,
+			CountryRegionCode,
+			IsOnlyStateProvinceFlag,
+			Name,
+			TerritoryID,
+			ModifiedDate
+	from Person.StateProvince
+
+	use AdventureWorks2017
+Select * from  Person.StateProvinceTest
+
+--Update data with subqueries
+--Change the TerritoryID of CA to 99
+Update Person.StateProvinceTest
+Set TeritoryID = 99
+Where CountryRegionCode IN
+	(Select CountryRegionCode IN
+	Where CountryRegionCode = 'CA')
+
+--Delete data from the table with subqueries
+Delete from Person.StateProvinceTest
+Where CountryRegionCode IN
+	(Select CountryRegionCode from Person.StateProvince
+	Where CountryRegionCode = 'CA')

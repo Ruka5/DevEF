@@ -1,0 +1,43 @@
+# This is a sample .gitignore file for use in your projects.
+######################
+
+# First a few notes about how to use a .gitignore file
+# "#" symbols denote comments
+# Each line is a pattern that git uses to match certain files. You can use a "*" symbol as a wildcard match. You can also include paths in your project using "/" delimiters. 
+######################
+
+# Compiled files
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages
+############
+# it's best practice to unpack these yourself
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# OS files 
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Other files
+######################
+*.log
+*.swp

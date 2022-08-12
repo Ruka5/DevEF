@@ -1,0 +1,23 @@
+Use AdventureWorks2017
+Go
+
+-- Finds the values that starts with 'a'
+Select * from Person.Person Where FirstName Like 'a%'
+
+-- Finds the values that ends with 'inda'
+Select * from Person.Person Where FirstName Like '%inda'
+
+-- Finds the values that have 'inda' in any position
+Select * from Person.Person Where FirstName Like '%inda%'
+
+-- Finds six letters names ending with 'inda'
+Select * from Person.Person Where FirstName Like '__inda'
+
+-- Finds first names starting with letter 'a', 'b', 'c'
+Select * from Person.Person Where FirstName Like '[abc]%'
+
+-- Finds first names starting with letter 'a', 'b', 'c'
+Select * from Person.Person Where FirstName Like '[a-c]%'
+
+-- Except letter 'a' in the entire column
+Select * from Person.Person Where FirstName Not Like '%a%'

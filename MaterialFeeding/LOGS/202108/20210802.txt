@@ -1,0 +1,3 @@
+2021-08-02 09:11:17.018> Wait for trolley! Check limit switch.
+2021-08-02 12:53:09.651> Program start.
+2021-08-02 12:53:11.429> DB is ONLINE

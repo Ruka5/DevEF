@@ -1,0 +1,51 @@
+Use AdventureWorks2017
+
+--Left(Outer) Join
+select * from Production.Product
+select * from Sales.SalesOrderDetail
+
+select Name, SalesOrderDetailID
+from Production.Product
+Left Join Sales.SalesOrderDetail
+On Product.ProductID=SalesOrderDetail.ProductID
+
+select Name, SalesOrderDetailID
+from Production.Product as P
+Left Outer Join Sales.SalesOrderDetail as S
+On P.ProductID=S.ProductID
+Where SalesOrderDetailID is Null
+
+--Right(Outer) Join
+select Name, SalesOrderDetailID
+from Production.Product as P
+Right Outer Join Sales.SalesOrderDetail as S
+On P.ProductID=S.ProductID
+
+--Full(Outer) Join
+select Name, SalesOrderDetailID
+from Production.Product as P
+Full Join Sales.SalesOrderDetail as S
+On P.ProductID=S.ProductID
+
+--Finds products with the same list price
+Select P1.Name, P2.Name, P1.ListPrice
+from Production.Product P1
+Join Production.Product P2
+On P1.ListPrice = P2.ListPrice
+
+--Finds products with the same list price
+Select P1.Name, P2.Name, P1.ListPrice
+from Production.Product P1
+Join Production.Product P2
+On P1.ListPrice = P2.ListPrice
+	And P1.ListPrice <> 0 --Exclude products with no price
+	And P1.Name <> P2.Name --Exclude the same product
+Order by ListPrice
+
+--Self Join with Alias
+Select P1.Name, P2.Name, P1.ListPrice
+from Production.Product as P1, Production.Product as P2
+Where P1.ListPrice = P2.ListPrice
+	And P1.ListPrice <> 0 --Exclude products with no price
+	And P1.Name <> P2.Name --Exclude the same product
+Order by ListPrice

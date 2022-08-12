@@ -1,0 +1,20 @@
+ATOMICITY - Transactions are all or nothing
+CONSISTENCY - Only valid data is saved
+ISOLATION - Transactions do not affect each other
+DURABILITY - Written data will not be lost
+
+System failure or termination, as there should be mechanism of recovering this data,
+that we will see later in the next articles of this series.
+
+ROLLBACK
+The ROLLBACK command is the transactional command used to
+undo transactions that have not already been saved to the database.
+
+COMMIT
+The COMMIT command is the transactional command used
+to save changes invoked by a transaction to the database
+
+SAVEPOINT
+A SAVEPOINT is a point in a transaction when you can
+roll the transaction back to a certain point without rolling
+back the entire transaction

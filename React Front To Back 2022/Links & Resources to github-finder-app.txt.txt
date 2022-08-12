@@ -1,0 +1,37 @@
+Install Tailwind CSS with Create React App keep going in advance
+
+Install daisyUI as Tailwind CSS plugin keep going in advance
+
+npm i react-router-dom react-icons
+
+create in src -> components -> layout -> Navbar.jsx (rfce)
+
+go to Postman:
+-> Get = https://api.github.com/search/users?q=ruka5
+-> Headers(*) -> X-RateLimit-Limit = 10 in min
+
+go to ghttps://github.com/settings/apps -> settings ->  Developer settings -> Personal access tokens -> Generate new token
+and in Note write "test" -> Expiration -> No Expiration
+and in Select scopes -> user -> repo
+and let's do generate token
+and copy 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
+and to Postman -> Authorization -> TYPE -> Bearer Token -> and paste code to Token -> Send 
+and look at the X-RateLimit-Limit , which he changed to 30 up per minute
+and in our root folder, create .env file !!! don't put any sensitive information here, anyone can see it!!!
+
+THAT LOOKS INDSIDE
+
+REACT_APP_GITHUB_URL = 'https://api.github.com'
+REACT_APP_GITHUB_TOKEN = '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'
+
+Now, restart your server by : npm run build
+
+and create folder users inside compoponents folder, and inside folder named UserResults.jsx
+
+Now I will install axios
+npm i axios
+
+
+
+
+

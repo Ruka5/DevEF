@@ -1,0 +1,34 @@
+Use Company
+Go
+
+--detete constraint
+Alter Table tableEmployees
+Drop Constraint CHK_EmployeeAge
+
+Alter Table tableEmployees
+Add Constraint CHK_EmployeeAge
+CHECK(Age >= 18)
+
+Create Table tableEmployees(
+EmployeeID int primary key Not Null,
+EmployeeName varchar(50) Not Null,
+Phone int Not Null,
+Age int Not Null CHECK(AGE >= 18),
+DepID int FOREIGN KEY references tableDepartments(DepID) Not Null,
+)
+
+Alter Table tableEmployees
+Add Constraint U_Phone
+Unique(Phone)
+
+Create Table tableEmployees(
+EmployeeID int primary key Not Null,
+EmployeeName varchar(50) Not Null,
+Phone int Not Null,
+DepID int FOREIGN KEY references tableDepartments(DepID) Not Null,
+)
+
+Create Table tableDepartments(
+DepID int primary key Not Null,
+DepartmentName varchar(50) Not Null,
+)

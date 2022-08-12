@@ -1,0 +1,116 @@
+dont forget install "Emmet Keybindings"
+package to VS Code ! THEN DON'T FORGET in in "Run.exe" type " %APPDATA%\Code\User\settings.json " and in
+setting.json put 
+    "emmet.triggerExpansionOnTab": true, 
+    "emmet.includeLanguages": { "javascript": "javascriptreact" }
+on the end of the folder
+
+ES7 React/Redux/GraphQL/React-Native snippets
+
+
+
+1. in our named folder type this!
+npx create-react-app feedback-app --use-npm
+npm i react-icons
+npm i uuid
+npm i framer-motion@4.1.17
+npm i react-router-dom
+npm run build
+npm i -g serve
+serve -s build
+git commit -m 'initial'
+npm i json-server
+
+2. in our created by npm app delete all in the src folder
+
+3. type npm run
+
+4. in src create index.js
+
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+
+  document.getElementById("root")
+);
+
+
+5. you can keep going to create App.js as like 
+
+function App() {
+  return <h1>Hello from the app component</h1>;
+}
+
+export default App;
+
+6. all is rendered through public/index.html
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+
+7. into package.json dont forget add last row
+"scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "json-server --watch db.json --port 5000"		<------
+  },
+
+and then create db.json file in area package.json is, and create there some mock data in JSON format, like this
+{
+    "feedback": [
+        {
+            "id":1,
+            "rating":10,
+            "text":"This is feedback item 1 coming from the backend"
+        },
+        {
+            "id":2,
+            "rating":8,
+            "text":"This is feedback item 1 coming from the backend"
+        },
+        {
+            "id":3,
+            "rating":8,
+            "text":"This is feedback item 1 coming from the backend"
+        }
+    ]
+}
+
+then npm run server
+
+https://www.npmjs.com/package/concurrently
+
+npm i concurrently
+
+then add the last line
+
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "json-server --watch db.json --port 5000",
+    "dev": "concurrently \"npm run server\" \"npm start\""
+  },
+
+npm run dev
+
+Now are both running, localhost:3000 and localhost:5000/feedback
+
+to ad proxy
+{
+  "name": "feedback-app",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:5000",
+
+
